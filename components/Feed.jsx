@@ -1,17 +1,20 @@
 'use client'
 import { useEffect, useState } from "react"
 import PostCard from "./PostCard"
+import { Zoom } from "react-awesome-reveal";
 
 const PostCardList = ({ data, handleTagClick }) => {
   return (
     <div className='mt-16 prompt_layout'>
-      {data && data.map((post) => (
-        <PostCard
-          key={post._id}
-          post={post}
-          handleTagClick={handleTagClick}
-        />
-      ))}
+      <Zoom cascade damping={0.400} triggerOnce>
+        {data && data.map((post) => (
+          <PostCard
+            key={post._id}
+            post={post}
+            handleTagClick={handleTagClick}
+          />
+        ))}
+      </Zoom>
     </div>
   );
 };
